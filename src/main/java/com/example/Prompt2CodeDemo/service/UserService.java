@@ -20,4 +20,11 @@ public interface UserService {
     boolean deleteUser(Long id);
     
     boolean existsByEmail(String email);
+    
+    // Role management methods
+    Optional<UserDto> assignRoleToUser(Long userId, Integer roleId);
+    
+    Optional<UserDto> removeRoleFromUser(Long userId, Integer roleId);
+    
+    List<UserDto> getUsersByRole(Integer roleId);
 }
