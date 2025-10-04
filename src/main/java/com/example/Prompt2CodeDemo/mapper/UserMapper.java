@@ -15,7 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 public interface UserMapper {
     
 
-    //@Mapping(target = "roles", ignore = true)
+    @Mapping(target = "roles", ignore = true)
     UserDto toDto(User user);
     
     // @AfterMapping
