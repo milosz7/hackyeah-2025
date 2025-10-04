@@ -1,0 +1,24 @@
+/* Custom styles for the application */
+:host {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Ensure proper spacing and layout */
+.p-card {
+  border-radius: 12px;
+}
+
+/* Custom button styles */
+.p-button {
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
