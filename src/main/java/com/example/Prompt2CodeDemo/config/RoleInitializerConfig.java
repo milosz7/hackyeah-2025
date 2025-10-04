@@ -7,6 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
+import org.springframework.core.annotation.Order;
 
 import java.util.Arrays;
 import java.util.List;
@@ -14,6 +15,7 @@ import java.util.List;
 @Component
 @RequiredArgsConstructor
 @Slf4j
+@Order(1)
 public class RoleInitializerConfig implements ApplicationRunner {
 
     private final RoleDao roleDao;
