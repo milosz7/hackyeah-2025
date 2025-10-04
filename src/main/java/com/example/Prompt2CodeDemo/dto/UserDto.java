@@ -13,15 +13,10 @@ import java.util.Set;
 @Builder
 public class UserDto {
     
-    private Long id;
     private String firstName;
     private String lastName;
-    private String pesel;
     private String email;
-    private String password;
-    private Boolean isActive;
     private String userType;
     private String phoneNumber;
     private Set<RoleDto> roles;
-    private Set<SupervisedEntityDto> supervisedEntities;
 }

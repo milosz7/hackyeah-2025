@@ -144,3 +144,4 @@ public class SupervisedEntityInitializerConfig implements ApplicationRunner {
         return "1".equals(value.trim()) || "true".equalsIgnoreCase(value.trim());
     }
 }
+
