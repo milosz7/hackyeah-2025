@@ -229,4 +229,14 @@ public class ReportServiceImpl implements ReportService {
             throw new RuntimeException("Failed to download validation result: " + e.getMessage(), e);
         }
     }
+    
+    @Override
+    public Optional<ReportDto> updateValidationResultFilePath(Long reportId, String validationResultFilePath) {
+        return reportDao.findById(reportId)
+                .map(report -> {
+                    report.setValidationResultFilePath(validationResultFilePath);
+                    Report updatedReport = reportDao.save(report);
+                    return reportMapper.toDto(updatedReport);
+                });
+    }
 }

@@ -157,13 +157,26 @@ public class ReportController {
             
             HttpHeaders headers = new HttpHeaders();
             headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
-            headers.setContentDispositionFormData("attachment", "validation_result.xlsx");
+            headers.setContentDispositionFormData("attachment", "validation_result.txt");
             
             return ResponseEntity.ok()
                     .headers(headers)
                     .body(fileContent);
         } catch (Exception e) {
             return ResponseEntity.notFound().build();
+        }
+    }
+    
+    @PostMapping("/{id}/validate")
+    @Operation(summary = "Trigger validation", description = "Trigger validation for a specific report")
+    public ResponseEntity<?> triggerValidation(@PathVariable Long id) {
+        try {
+            // Redirect to validation controller
+            return ResponseEntity.status(HttpStatus.FOUND)
+                    .header("Location", "/api/validation/validate/" + id)
+                    .build();
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().build();
         }
     }
 }

@@ -34,6 +34,8 @@ public interface ReportService {
     byte[] downloadReportFile(Long reportId);
     
     byte[] downloadValidationResult(Long reportId);
+    
+    Optional<ReportDto> updateValidationResultFilePath(Long reportId, String validationResultFilePath);
 }
 
 
