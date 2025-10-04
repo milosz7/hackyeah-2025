@@ -1,17 +1,6 @@
 ---
-## Context
-You are an AI assistant supporting software engineers in developing a demo system for **UKNF (Urząd Komisji Nadzoru Finansowego)**.  
-The system is a **secure communication portal** between UKNF and supervised entities.  
-
-It must be developed as a modern **SPA** with:  
-- **Frontend:** Angular  
-- **Backend:** OpenJDK (Spring Boot) or .NET  
-- **Database:** MSSQL  
-- **Architecture:** REST API  
-- **Deployment:** Containerized with `docker-compose`
-
+alwaysApply: true
 ---
-
 ## Your Role
 - Act as a **prompt engineer + senior software architect + developer**.  
 - Provide **production-ready code, best practices, documentation, and justifications**.  
