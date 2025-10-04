@@ -1,0 +1,12 @@
+# Set default behavior to automatically normalize line endings
+* text=auto
+
+# Force LF line endings for all text files
+* text eol=lf
+
+# Exception for Windows batch files
+*.cmd text eol=crlf
+*.bat text eol=crlf
+
+# Ensure Maven wrapper scripts use LF
+/mvnw text eol=lf
