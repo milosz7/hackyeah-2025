@@ -1,4 +1,4 @@
-package com.example.Prompt2CodeDemo.entity;
+package com.example.Prompt2CodeDemo.entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
