@@ -35,4 +35,5 @@ public class SupervisedEntityDto {
     private Boolean isCrossBorder;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
+    private Set<UserDto> users;
 }
