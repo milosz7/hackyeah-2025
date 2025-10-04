@@ -7,7 +7,6 @@ import lombok.Builder;
 
 import java.time.LocalDateTime;
 import java.util.Set;
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -36,4 +35,5 @@ public class SupervisedEntityDto {
     private Boolean isCrossBorder;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
+    private Set<UserDto> users;
 }

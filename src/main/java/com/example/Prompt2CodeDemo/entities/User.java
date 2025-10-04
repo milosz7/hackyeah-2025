@@ -1,17 +1,18 @@
 package com.example.Prompt2CodeDemo.entities;
 
 import jakarta.persistence.*;
-import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
-
+import lombok.Getter;
+import lombok.Setter;
 import java.util.Set;
 
 @Entity
 @Table(name = "users")
-@Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Getter
+@Setter
 public class User {
     
     @Id
@@ -57,4 +58,21 @@ public class User {
         inverseJoinColumns = @JoinColumn(name = "supervised_entity_id")
     )
     private Set<SupervisedEntity> supervisedEntities;
+    
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", pesel='" + pesel + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", isActive=" + isActive +
+                ", userType='" + userType + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", roles=" + roles +
+                ", supervisedEntities=" + supervisedEntities +
+                '}';
+    }
 }

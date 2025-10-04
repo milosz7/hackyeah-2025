@@ -1,18 +1,19 @@
 package com.example.Prompt2CodeDemo.entities;
 
 import jakarta.persistence.*;
-import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
-
+import lombok.Getter;
+import lombok.Setter;
 import java.time.LocalDateTime;
 import java.util.Set;
 
 @Entity
 @Table(name = "supervised_entities")
-@Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Getter
+@Setter
 public class SupervisedEntity {
     
     @Id
@@ -94,5 +95,34 @@ public class SupervisedEntity {
     @PreUpdate
     protected void onUpdate() {
         updatedAt = LocalDateTime.now();
+    }
+    
+    @Override
+    public String toString() {
+        return "SupervisedEntity{" +
+                "id=" + id +
+                ", entityType='" + entityType + '\'' +
+                ", uknfCode='" + uknfCode + '\'' +
+                ", entityName='" + entityName + '\'' +
+                ", lei='" + lei + '\'' +
+                ", nip='" + nip + '\'' +
+                ", krs='" + krs + '\'' +
+                ", street='" + street + '\'' +
+                ", buildingNumber='" + buildingNumber + '\'' +
+                ", premisesNumber='" + premisesNumber + '\'' +
+                ", postalCode='" + postalCode + '\'' +
+                ", city='" + city + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", email='" + email + '\'' +
+                ", uknfRegistrationNumber='" + uknfRegistrationNumber + '\'' +
+                ", entityStatus='" + entityStatus + '\'' +
+                ", entityCategory='" + entityCategory + '\'' +
+                ", operatorSector='" + operatorSector + '\'' +
+                ", entitySubsector='" + entitySubsector + '\'' +
+                ", isCrossBorder=" + isCrossBorder +
+                ", createdAt=" + createdAt +
+                ", updatedAt=" + updatedAt +
+                ", users=" + users +
+                '}';
     }
 }

@@ -54,7 +54,7 @@ public class UserInitializerConfig implements ApplicationRunner {
             adminUser.setLastName("Administrator");
             adminUser.setEmail("admin@system.com");
             adminUser.setPassword(passwordEncoder.encode("admin123"));
-            adminUser.setUserType("ADMIN");
+            adminUser.setUserType("EXTERNAL");
             adminUser.setIsActive(true);
             adminUser.setPhoneNumber("+48123456789");
             
@@ -98,7 +98,7 @@ public class UserInitializerConfig implements ApplicationRunner {
                 employee.setLastName("User");
                 employee.setEmail(email);
                 employee.setPassword(passwordEncoder.encode("employee123"));
-                employee.setUserType("EMPLOYEE");
+                employee.setUserType("EXTERNAL");
                 employee.setIsActive(true);
                 employee.setPhoneNumber("+4812345678" + i);
                 
