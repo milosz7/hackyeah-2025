@@ -81,4 +81,31 @@ public class UserDaoImpl implements UserDao {
         TypedQuery<Long> query = entityManager.createQuery("SELECT COUNT(u) FROM User u", Long.class);
         return query.getSingleResult();
     }
+    
+    @Override
+    @Transactional(readOnly = true)
+    public List<User> findByUserType(String userType) {
+        TypedQuery<User> query = entityManager.createQuery(
+            "SELECT u FROM User u WHERE u.userType = :userType", User.class);
+        query.setParameter("userType", userType);
+        return query.getResultList();
+    }
+    
+    @Override
+    @Transactional(readOnly = true)
+    public List<User> findByIsActive(Boolean isActive) {
+        TypedQuery<User> query = entityManager.createQuery(
+            "SELECT u FROM User u WHERE u.isActive = :isActive", User.class);
+        query.setParameter("isActive", isActive);
+        return query.getResultList();
+    }
+    
+    @Override
+    @Transactional(readOnly = true)
+    public List<User> findByRolesId(Integer roleId) {
+        TypedQuery<User> query = entityManager.createQuery(
+            "SELECT u FROM User u JOIN u.roles r WHERE r.id = :roleId", User.class);
+        query.setParameter("roleId", roleId);
+        return query.getResultList();
+    }
 }

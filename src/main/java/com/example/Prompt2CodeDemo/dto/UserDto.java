@@ -5,6 +5,8 @@ import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 
+import java.util.Set;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -12,7 +14,14 @@ import lombok.Builder;
 public class UserDto {
     
     private Long id;
-    private String name;
+    private String firstName;
+    private String lastName;
+    private String pesel;
     private String email;
-    private Integer age;
+    private String password;
+    private Boolean isActive;
+    private String userType;
+    private String phoneNumber;
+    private Set<RoleDto> roles;
+    private Set<SupervisedEntityDto> supervisedEntities;
 }

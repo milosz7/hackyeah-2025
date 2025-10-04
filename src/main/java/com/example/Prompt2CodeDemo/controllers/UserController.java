@@ -57,4 +57,24 @@ public class UserController {
         return user.map(ResponseEntity::ok)
                   .orElse(ResponseEntity.notFound().build());
     }
+    
+    @PostMapping("/{userId}/roles/{roleId}")
+    public ResponseEntity<UserDto> assignRoleToUser(@PathVariable Long userId, @PathVariable Integer roleId) {
+        Optional<UserDto> user = userService.assignRoleToUser(userId, roleId);
+        return user.map(ResponseEntity::ok)
+                  .orElse(ResponseEntity.notFound().build());
+    }
+    
+    @DeleteMapping("/{userId}/roles/{roleId}")
+    public ResponseEntity<UserDto> removeRoleFromUser(@PathVariable Long userId, @PathVariable Integer roleId) {
+        Optional<UserDto> user = userService.removeRoleFromUser(userId, roleId);
+        return user.map(ResponseEntity::ok)
+                  .orElse(ResponseEntity.notFound().build());
+    }
+    
+    @GetMapping("/by-role/{roleId}")
+    public ResponseEntity<List<UserDto>> getUsersByRole(@PathVariable Integer roleId) {
+        List<UserDto> users = userService.getUsersByRole(roleId);
+        return ResponseEntity.ok(users);
+    }
 }

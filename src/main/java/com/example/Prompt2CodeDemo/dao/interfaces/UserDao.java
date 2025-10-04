@@ -22,4 +22,11 @@ public interface UserDao {
     boolean existsByEmail(String email);
     
     long count();
+    
+    // Role-based queries
+    List<User> findByUserType(String userType);
+    
+    List<User> findByIsActive(Boolean isActive);
+    
+    List<User> findByRolesId(Integer roleId);
 }
