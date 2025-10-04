@@ -32,7 +32,10 @@ public class RoleInitializerConfig implements ApplicationRunner {
     private void initializeRoles() {
         List<Role> defaultRoles = Arrays.asList(
             createRole("ADMIN", Arrays.asList("READ", "WRITE", "DELETE", "MANAGE_USERS", "MANAGE_ROLES")),
-            createRole("EMPLOYEE", Arrays.asList("READ", "WRITE"))
+            createRole("EMPLOYEE", Arrays.asList("READ", "WRITE")),
+            createRole("UKNF", Arrays.asList("READ", "WRITE", "MANAGE_ENTITIES")),
+            createRole("UKNF_EMPLOYEE", Arrays.asList("READ", "WRITE")),
+            createRole("UKNF_SYSTEM_ADMINISTRATOR", Arrays.asList("READ", "WRITE", "DELETE", "MANAGE_USERS", "MANAGE_ROLES", "SYSTEM_ADMIN"))
         );
 
         for (Role role : defaultRoles) {

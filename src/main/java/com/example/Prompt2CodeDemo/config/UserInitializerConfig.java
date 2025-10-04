@@ -45,6 +45,9 @@ public class UserInitializerConfig implements ApplicationRunner {
         
         // Create employee users for each supervised entity
         createEmployeeUsers();
+        
+        // Create UKNF internal users
+        createUKNFUsers();
     }
 
     private void createAdminUser() {
@@ -117,6 +120,44 @@ public class UserInitializerConfig implements ApplicationRunner {
             } else {
                 log.info("Employee user already exists: {}", email);
             }
+        }
+    }
+
+    private void createUKNFUsers() {
+        // Create UKNF user
+        createUKNFUser("UKNF", "uknf@uknf.gov.pl", "UKNF", "Administrator");
+        
+        // Create UKNF Employee user
+        createUKNFUser("UKNF_EMPLOYEE", "uknf.employee@uknf.gov.pl", "UKNF", "Employee");
+        
+        // Create UKNF System Administrator user
+        createUKNFUser("UKNF_SYSTEM_ADMINISTRATOR", "uknf.admin@uknf.gov.pl", "UKNF", "System Administrator");
+    }
+
+    private void createUKNFUser(String roleName, String email, String firstName, String lastName) {
+        if (!userDao.existsByEmail(email)) {
+            User uknfUser = new User();
+            uknfUser.setFirstName(firstName);
+            uknfUser.setLastName(lastName);
+            uknfUser.setEmail(email);
+            uknfUser.setPassword(passwordEncoder.encode("uknf123"));
+            uknfUser.setUserType("INTERNAL");
+            uknfUser.setIsActive(true);
+            uknfUser.setPhoneNumber("+48123456789");
+            uknfUser.setPesel(null); // Explicitly set pesel as null for INTERNAL users
+            
+            // Assign the specified role
+            Role role = roleDao.findByName(roleName).orElse(null);
+            if (role != null) {
+                Set<Role> roles = new HashSet<>();
+                roles.add(role);
+                uknfUser.setRoles(roles);
+            }
+            
+            userDao.save(uknfUser);
+            log.info("Created UKNF user: {} with role: {}", email, roleName);
+        } else {
+            log.info("UKNF user already exists: {}", email);
         }
     }
 }
