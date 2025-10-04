@@ -128,7 +128,6 @@ public class SupervisedEntityServiceImpl implements SupervisedEntityService {
                 .flatMap(entity -> userService.getUserById(userId)
                         .map(userDto -> {
                             User user = new User();
-                            user.setId(userDto.getId());
                             user.setFirstName(userDto.getFirstName());
                             user.setLastName(userDto.getLastName());
                             user.setEmail(userDto.getEmail());

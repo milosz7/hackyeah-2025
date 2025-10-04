@@ -91,7 +91,7 @@ public class UserServiceImpl implements UserService {
                             Role role = new Role();
                             role.setId(roleDto.getId());
                             role.setName(roleDto.getName());
-                            role.setPermissions(roleDto.getPermissions());
+                            //role.setPermissions(roleDto.getPermissions());
                             
                             if (user.getRoles() == null) {
                                 user.setRoles(new java.util.HashSet<>());
