@@ -23,7 +23,11 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         
         http.csrf().disable();
-        http.authorizeHttpRequests(auth -> auth.anyRequest().permitAll());
+        http.authorizeHttpRequests(auth -> auth
+            // Public authentication endpoints
+            .requestMatchers("/api/auth/login").permitAll()
+            // All other requests
+            .anyRequest().permitAll());
         return http.build();
     }
 }
